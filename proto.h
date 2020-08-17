@@ -21,19 +21,20 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 
 typedef enum __opcode_ {
-    GET = 0;
-    SET = 1;
-    UNDEFINED = -1;
+    GET = 0,
+    SET = 1,
+    UNDEFINED = -1
 }opcode;
 
 typedef enum __type_ {
-    INT  = 0;
-    CHAR = 1;
-    STR  = 2;
-    UNDEFINED = -1;
+    INT  = 0,
+    CHAR = 1,
+    STR  = 2,
+    INVALID = -1
 }type;
 
 typedef struct __message_format_ {

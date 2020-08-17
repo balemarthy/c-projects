@@ -14,3 +14,10 @@ uint8_t get_type(void);
 uint8_t get_length(void);
 uint8_t *get_value(void);
 uint16_t get_chksum(void);
+
+// Temporarily silence the linker. The protocol files are supposed to get integrated with app file
+int main(void) {
+
+    return 0;
+
+}
