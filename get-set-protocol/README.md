@@ -21,14 +21,16 @@ packet that is exchanged between devices.
 
 
 The packet format is as below
-        ____________________________________________
        |SOF| OPCODE| TYPE| LENGTH |VALUE | CHECKSUM |
-       |___|_______|_____|________|______|__________|
-       
+              
  SOF - Start of Frame, which is a '$' character. If the data also contains '$' then that character is preceded by a '/'
 
  OPCODE - The opcode can be either a GET or SET
+ 
  TYPE   - The type of data that is present in the packet. The current values supported as INT, CHAR, STR
+ 
  LENGTH - The length of the payload
+ 
  VALUE  - The actual value of the payload
+ 
  CHECKSUM - It is running summation of all the fields and it's one's complement
