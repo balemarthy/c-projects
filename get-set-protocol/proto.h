@@ -23,30 +23,39 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+#define DEF_CHKSUM  0xFFFF
 
-typedef enum __opcode_ {
+
+typedef enum opcode {
     GET = 0,
     SET = 1,
     UNDEFINED = -1
-}opcode;
+} opcode;
 
-typedef enum __type_ {
+typedef enum type {
     INT  = 0,
     CHAR = 1,
     STR  = 2,
     INVALID = -1
-}type;
+} type;
 
-typedef struct __message_format_ {
+typedef struct message_fields {
+    opcode opc;
+    type typ;
+    uint8_t len;
+    uint8_t *val;    
+} msg_fields;
+
+typedef struct message_format {
     uint8_t SOF;
     opcode opc;
     type typ;
     uint8_t len;
     uint8_t *val;
     uint16_t chksum;
-}msg_fmt;
+} msg_fmt;
 
-
+msg_fmt *msg = NULL;
 
 
 #endif
