@@ -50,4 +50,65 @@ int main()
     return 0;
 }
 
+/* Creates matrix mat */
+void create(int mat[3][3]) {
+    int i, j;
+    
+    for(i=0; i<MAX; i++) {
+        for(j=0; j<MAX; j++) {
+            printf("Enter the element:");
+            scanf("%d",&mat[i][j]);
+        }
+    }
+}
+
+/* displays the contents of matrix */
+void display(int mat[3][3]) {
+    int i,j;
+    
+    for(i=0; i<MAX; i++) {
+        for(j=0; j<MAX; j++) {
+            printf("%d\t", mat[i][j]);
+        }
+        printf("\n");    
+    }
+}
+
+/* adds two matrices m1 and m2 */
+void matadd(int m1[3][3], int m2[3][3], int m3[3][3]) {
+    int i,j;
+    
+    for(i=0; i<MAX; i++) {
+        for(j=0; j<MAX; j++) {
+            m3[i][j] = m1[i][j] + m2[i][j];
+        }
+    }
+}
+
+/* multiplies two matrices m1 and m2 */
+void matmul(int m1[3][3], int m2[3][3], int m3[3][3]) {
+    int i,j,k;
+    
+    for(k=0; k<MAX; k++) {
+        for(i=0; i<MAX; i++) {
+            m3[k][i] = 0;
+            for(j=0; j<MAX; j++) {
+                m3[k][i] += m1[k][j] * m2[j][i];
+            }
+        }
+    }
+}
+
+/* obtains transpose of matrxi m1 */
+void transpose(int m1[3][3], int m2[3][3]) {
+    int i,j;
+    
+    for(i=0; i<MAX; i++) {
+        for(j=0; j<MAX; j++) {
+            m2[i][j] = m1[j][i];
+        }
+    }
+}
+
+
 
