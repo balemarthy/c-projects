@@ -25,7 +25,7 @@ int main()
     a->next = b;
     b->next = NULL;
 
-    //Don't change the below code
+    
     struct node *temp = c;
 
     while(temp != NULL)
