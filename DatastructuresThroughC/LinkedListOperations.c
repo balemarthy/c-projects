@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <alloc.h>
 #include <stdlib.h>
 
 /* structure containing a data part and link part */
@@ -10,6 +9,7 @@ struct node {
 
 void append(struct node **, int);
 void addatbeg(struct node **, int);
+void addafter(struct node *, int, int);
 void display(struct node *);
 
 void main(void) {
@@ -24,13 +24,16 @@ void main(void) {
     addatbeg(&p, 10);
     
     display(p);   
+    
+    addafter(p, 7, 0);  
+    
 }
 
 /* adds a node at the end of a linked list */
 void append(struct node **q, int num) {
     struct node *temp, *r;
     
-    if(q == NULL) {
+    if(*q == NULL) {
         temp = malloc(sizeof(struct node));
         temp->data = num;
         temp->link = NULL;
@@ -61,6 +64,29 @@ void addatbeg(struct node **q, int num) {
     temp->data = num;
     temp->link = *q;
     *q = temp;
+}
+
+/* adds a new node after the specified number of nodes */
+void addafter(struct node *q, int loc, int num) {
+    struct node *temp, *r;
+    int i;
+    
+    temp = q;
+    /* skip to the desired position */
+    for(i=0; i<loc; i++) {
+        temp = temp->link;
+        
+        /* if end of linked list is encountered */
+        if(NULL == temp) {
+            printf("There are less than %d elements in the list", loc);
+            return;
+        }        
+    }
+    /* insert new node */
+    r = malloc(sizeof(struct node));
+    r->data = num;
+    r->link = temp->link;
+    temp->link = r;    
 }
 
 /* displays the contents of the linked list */
