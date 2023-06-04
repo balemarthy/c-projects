@@ -10,6 +10,7 @@ struct node {
 void append(struct node **, int);
 void addatbeg(struct node **, int);
 void addafter(struct node *, int, int);
+void delete(struct node **, int);
 void display(struct node *);
 
 void main(void) {
@@ -26,6 +27,9 @@ void main(void) {
     display(p);   
     
     addafter(p, 7, 0);  
+    
+    delete(&p, 10);
+    display(p);
     
 }
 
@@ -87,6 +91,30 @@ void addafter(struct node *q, int loc, int num) {
     r->data = num;
     r->link = temp->link;
     temp->link = r;    
+}
+
+void delete(struct node **q, int num) {
+    struct node *old, *temp;
+    
+    temp = *q;
+    
+    while(temp != NULL) {
+        if(temp->data == num) {
+            /* if node to be deleted is the first node in the linked list */
+            if(temp == *q) {
+                *q = temp->link;
+            } else {
+                old->link = temp->link;   
+            }
+            /* free the memory occupied by node */
+            free(temp);
+            return;
+        } else {
+            old = temp; /* old points to the previous node */
+            temp = temp->link;
+        }
+    }
+    printf("\nElement %d not found\n",num);
 }
 
 /* displays the contents of the linked list */
