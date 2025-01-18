@@ -1,0 +1,38 @@
+# Temperature Lookup Table for ATmega328P
+
+## Overview
+This project demonstrates the use of arrays as lookup tables in embedded systems. It is tailored for low-memory embedded devices like the **ATmega328P** microcontroller. The code optimizes ADC-to-temperature conversion by precomputing values and storing them in an array. This approach reduces computational overhead, which is crucial in real-time systems.
+
+## Features
+- **Precomputed Lookup Table**: Eliminates runtime calculations.
+- **Efficient ADC Integration**: Uses the ATmega328P's 10-bit ADC for sensor readings.
+- **UART Debugging**: Displays ADC values and corresponding temperatures via a serial connection.
+- **Deterministic Performance**: Ensures constant-time access to temperature data.
+
+## Hardware Requirements
+1. **Microcontroller**: ATmega328P (e.g., Arduino Uno).
+2. **Temperature Sensor**: LM35 or equivalent.
+3. **Serial Interface**: UART for debugging.
+
+## Software Requirements
+- **AVR-GCC**: Compile the code for the ATmega328P.
+- **AVRDUDE**: Flash the compiled code to the microcontroller.
+- **Doxygen** (optional): Generate documentation from the source code.
+
+## How It Works
+1. The ADC reads a 10-bit value from the temperature sensor.
+2. A precomputed lookup table (array) maps the ADC values to corresponding temperatures.
+3. The system retrieves the temperature in constant time using the ADC value as the array index.
+4. Results are transmitted via UART for debugging.
+
+## Usage Instructions
+### **Hardware Setup**
+1. Connect the LM35 sensor output to **A0** (ADC0) of the ATmega328P.
+2. Connect the LM35 sensor's Vcc and GND to the board's 5V and GND pins, respectively.
+3. Connect the UART pins (TX, RX) to a serial interface for debugging.
+
+### **Software Setup**
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/your-username/temperature-lookup-table.git
+   cd temperature-lookup-table
