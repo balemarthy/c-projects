@@ -1,0 +1,47 @@
+# Real-Time Button Debounce Manager
+
+## Overview
+This project demonstrates a **real-time button debounce manager** for embedded systems using **self-referential structures**. The system dynamically manages multiple buttons, debounces their signals, and triggers specific actions when a button is pressed. The project is designed for early-career developers learning **linked lists**, **structures**, and **callback functions**.
+
+## Features
+- **Dynamic Button Management**: Add and remove buttons dynamically at runtime.
+- **Debounce Handling**: Prevent false triggers caused by noisy button signals.
+- **Event-Driven Programming**: Trigger callback functions when a button press is detected.
+- **Extensible Design**: Easily add features like long-press detection or state logging.
+
+## Key Concepts
+- **Structures and Pointers**: Represent buttons and manage them dynamically.
+- **Linked Lists**: Efficiently add, remove, and traverse buttons.
+- **Callback Functions**: Execute specific actions on button press events.
+
+## Hardware Requirements
+- **Microcontroller**: ATmega2560 or similar.
+- **Input Buttons**: Two or more momentary push buttons.
+- **Output LEDs**: To indicate button press actions.
+
+## Software Requirements
+- **AVR-GCC**: To compile the code.
+- **AVRDUDE**: To flash the code to the microcontroller.
+- **Doxygen** (optional): To generate documentation.
+
+## How It Works
+1. The **Button Structure**:
+   - Each button is represented as a structure containing:
+     - GPIO pin, current state, debounce time, and a callback function.
+2. **Linked List**:
+   - Dynamically manages buttons in a singly linked list.
+3. **Debouncing**:
+   - Monitors each button's state and applies a debounce delay when the state changes.
+4. **Event Handling**:
+   - Calls the user-defined callback function when a button press is confirmed.
+
+## Usage Instructions
+### Hardware Setup
+1. Connect buttons to **PD2**, **PD3**, etc., with pull-up resistors enabled.
+2. Connect LEDs to **PB0**, **PB1**, etc., to visualize button events.
+
+### Software Setup
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/your-username/button-debounce-manager.git
+   cd button-debounce-manager
