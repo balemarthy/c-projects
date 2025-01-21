@@ -1,0 +1,24 @@
+## Circular Queue for Real-Time Data Streaming (AVR)
+
+This file (`circular_queue.c`) provides a simple demonstration of a circular (ring) buffer for real-time data streaming on AVR microcontrollers. It uses UART receive interrupts to enqueue incoming bytes and offers functions to dequeue them in the main loop. You can adapt this to any data source (e.g., ADC or sensor interrupts).
+
+### Key Features
+- **Interrupt-Driven**: The UART RX ISR places incoming bytes into the buffer.
+- **Fixed-Size Static Buffer**: Prevents dynamic allocation overhead.
+- **Configurable**: Buffer size and device parameters are easily changed.
+
+### Usage
+1. **Include/Compile**: Add `circular_queue.c` and `circular_queue.h` (if split) to your AVR project.
+2. **Adjust Baud Rate**: Set the correct CPU frequency (`F_CPU`) and `UBRR_VALUE` for your desired baud rate.
+3. **Build**: Use `avr-gcc` and `avrdude` to compile and program the target MCU.
+4. **Test**: Open a serial terminal at the chosen baud rate. Sent characters should echo back, indicating the queue is working.
+
+### Documentation
+- Doxygen-style comments are present in `circular_queue.c`.  
+- Generate docs by running `doxygen` (configure `Doxyfile` as needed).
+
+#### Quick Build Example
+```bash
+avr-gcc -mmcu=atmega328p -DF_CPU=16000000UL -Os circular_queue.c -o main.elf
+avr-objcopy -O ihex main.elf main.hex
+avrdude -c <your_programmer> -p m328p -U flash:w:main.hex
