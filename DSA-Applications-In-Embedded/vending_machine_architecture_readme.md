@@ -1,8 +1,4 @@
-# Recreate the Markdown file after execution state reset
-
-# Create a new Markdown file for the System Architecture Document
-
-markdown_content = """# 🏗️ Intelligent Sugarcane Juice Vending Machine - System Architecture Document (MVP)
+# System Architecture Document
 
 ## 📌 1. Introduction
 
