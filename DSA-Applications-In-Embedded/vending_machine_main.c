@@ -1,9 +1,9 @@
 /**
  * @file main.c
  * @brief Sugarcane Juice Vending Machine (MVP) - Main Control File
- * @author Open Source Contributor
+ * @author 
  * @version 1.1
- * @date 2024
+ * @date 2025
  * 
  * @details
  * This firmware controls a simple vending machine that dispenses sugarcane juice. 
